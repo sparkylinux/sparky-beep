@@ -1,0 +1,33 @@
+#! /bin/sh -e
+### BEGIN INIT INFO
+# Provides: beep_netdata
+# Required-Start: $syslog
+# Required-Stop: $syslog
+# Required-Reload: $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop:	0 1 6
+# Description: Emit a beep sound at netdata state changes
+#
+### END INIT INFO
+#
+#
+
+set -e
+
+case "$1" in
+  start)
+n=3000; while [ $n -gt 400 ]; do beep -f $n -l 5; n=$((n*97/100)); done
+;;
+	stop)
+n=3000; while [ $n -gt 400 ]; do beep -f $n -l 5; n=$((n*97/100)); done
+;;
+	restart)
+n=3000; while [ $n -gt 400 ]; do beep -f $n -l 5; n=$((n*97/100)); done; beep -f 1000 -n -f 1500
+;;
+  *)
+  echo "Use: /etc/init.d/beep_netdata {start|stop|restart}"
+  exit 1
+  ;;
+esac
+
+exit 0
