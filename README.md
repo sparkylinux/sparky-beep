@@ -20,9 +20,7 @@ Dependencies:
 -------------
 beep
 coreutils
-samba
 systemd
-webmin
 
 Install:
 -------------

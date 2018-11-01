@@ -23,7 +23,11 @@ if [ "$1" = "uninstall" ]; then
 	rm -f /lib/systemd/system/beep_samba.service
 	rm -f /lib/systemd/system/beep_sys.service
 	rm -f /lib/systemd/system/beep_webmin.service
+	rm -f /usr/bin/sparky-beep-run
+	rm -f /etc/xdg/autostart/sparky-beep-run.desktop
 else
 	cp init.d/* /etc/init.d/
 	cp system/* /lib/systemd/system/
+	cp bin/* /usr/bin/
+	cp etc/* /etc/xdg/autostart/
 fi
