@@ -20,7 +20,12 @@ Dependencies:
 -------------
 beep
 coreutils
+grep
+netdata
+openssh-server
+samba
 systemd
+webmin
 
 Install:
 -------------
