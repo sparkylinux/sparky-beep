@@ -3,12 +3,14 @@ Upstream Author(s):
     
 Files: 
     DEBIAN/*
+    /usr/bin/*
     /usr/share/doc/*
+    /etc/init.d/sparky-beep
     Copyright (C) 2018 Paweł Pijanowski
     License: GPL-3
 
 Files:
-    /etc/init.d/*
+    /etc/init.d/beep_*
     /lib/systemd/system/*
     Copyright (C) 2018 Daniel Campos Ramos
     License: GPL-3
