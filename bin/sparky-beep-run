@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # It checks beep services running on Sparky server edition
-# last update 2018/11/18 22:20 by pavroo
+# last update 2018/11/19 by pavroo
 
+##################################################################
 # check 1: beep_netdata
 CHECKBEEPNETDATA=`systemctl status beep_netdata | grep inacitve`
 
@@ -16,6 +17,12 @@ if [ "$CHECKBEEPNETDATA" != " " ]; then
 	fi
 fi
 
+# enable it if not enabled
+LOADBEEPNETDATA=`systemctl status beep_netdata | grep disabled;`
+if [ "$LOADBEEPNETDATA" != " " ]; then
+	systemctl enable beep_netdata
+fi
+##################################################################
 # check 2: beep_samba
 CHECKBEEPSAMBA=`systemctl status beep_samba | grep inacitve`
 CHECKSMBD=`systemctl status smbd | grep masked`
@@ -40,6 +47,12 @@ if [ "$CHECKBEEPSAMBA" != " " ]; then
 	fi
 fi
 
+# enable it if not enabled
+LOADBEEPSAMBA=`systemctl status beep_samba | grep disabled;`
+if [ "$LOADBEEPSAMBA" != " " ]; then
+	systemctl enable beep_samba
+fi
+#####################################################################
 # check 3: beep_sys
 CHECKBEEPSYS=`systemctl status beep_sys | grep inacitve`
 if [ "$CHECKBEEPSYS" != " " ]; then
@@ -52,6 +65,12 @@ if [ "$CHECKBEEPSYS" != " " ]; then
 	fi
 fi
 
+# enable it if not enabled
+LOADBEEPSYS=`systemctl status beep_sys | grep disabled;`
+if [ "$LOADBEEPSYS" != " " ]; then
+	systemctl enable beep_sys
+fi
+######################################################################
 # check 4: beep_webmin
 CHECKBEEPWEBMIN=`systemctl status beep_webmin | grep inacitve`
 if [ "$CHECKBEEPWEBMIN" != " " ]; then
@@ -63,6 +82,13 @@ if [ "$CHECKBEEPWEBMIN" != " " ]; then
 		echo "beep_webmin service is NOT active..."
 	fi
 fi
+
+# enable it if not enabled
+LOADBEEPWEBMIN=`systemctl status beep_webmin | grep disabled;`
+if [ "$LOADBEEPWEBMIN" != " " ]; then
+	systemctl enable beep_webmin
+fi
+#######################################################################
 
 echo "sparky-beep started" >> /tmp/sparky-beep-test.$$
 
