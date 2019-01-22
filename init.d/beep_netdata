@@ -16,13 +16,13 @@ set -e
 
 case "$1" in
   start)
-n=3000; while [ $n -gt 400 ]; do beep -f $n -l 5; n=$((n*97/100)); done
+beep -f 1000 -n -f 1500 -n -f 600 -n -f 500 -n -f 100 -r 2 -l 10 -n -f 50 -r 2 -l 200
 ;;
 	stop)
-n=3000; while [ $n -gt 400 ]; do beep -f $n -l 5; n=$((n*97/100)); done
+beep -f 100 -r 2 -l 10 -n -f 50 -r 2 -l 200
 ;;
 	restart)
-n=3000; while [ $n -gt 400 ]; do beep -f $n -l 5; n=$((n*97/100)); done; beep -f 1000 -n -f 1500
+beep -f 100 -r 2 -l 10 -n -f 50 -r 2 -l 200 -n -f 100 -r 2 -l 10 -n -f 50 -r 2 -l 200; beep -f 1000 -n -f 1500 -n -f 600 -n -f 500 -n -f 100 -r 2 -l 10 -n -f 50 -r 2 -l 200
 ;;
   *)
   echo "Use: /etc/init.d/beep_netdata {start|stop|restart}"
