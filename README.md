@@ -1,7 +1,7 @@
 Sparky Beep
 Provides beep support for a few services of sbserver edition.
 
-Copyright (C) 2018 Paweł Pijanowski & Daniel Campos Ramos
+Copyright (C) 2018-2019 Paweł Pijanowski & Daniel Campos Ramos
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,13 +18,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Dependencies:
 -------------
+apt
 beep
 coreutils
 grep
-netdata
 openssh-server
-samba
 systemd
+
+Suggests:
+-------------
+netdata
+samba
 webmin
 
 Install:
