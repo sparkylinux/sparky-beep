@@ -1,5 +1,0 @@
-#!/bin/sh
-
-/usr/bin/sparky-beep-run
-
-exit 0
